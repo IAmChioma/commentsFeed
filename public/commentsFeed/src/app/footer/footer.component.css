@@ -1,0 +1,17 @@
+.my-footer{
+    display:flex;
+    position: fixed;
+    bottom: 0%;
+    height: 4vh;
+    width: 100%;
+    background-color:rgb(180, 182, 182);
+}
+
+.my-footer > section{
+    display: flex;
+    width: 50%;
+    margin: 0em 1em 0em 1em;
+}
+.my-right-footer{
+    justify-content: end;
+}

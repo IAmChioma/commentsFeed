@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center">
+
+
+
+    <form #commentForm="ngForm" (ngSubmit)="addComment()">
+        <p *ngIf="hasError" class="alert alert-danger mt-1">{{errorMessage}}</p>
+        <p *ngIf="hasSucess" class="alert alert-success mt-1">{{successMessage}}</p>
+        <div class="row  mb-2 mt-1 mx-auto">
+            
+            <label for="name">Name</label>
+            <div class="col-md-12 mt-2">
+                <input type="text" name="name" id="name" ngModel #name="ngModel" class="form-control" required>
+                <small *ngIf="!name.valid && name.touched">
+                    {{comment_name_required}}
+                </small>
+            </div>
+           
+        </div>
+        <div class="row mb-2 mx-auto">
+            <div class="col-md-12">
+                <textarea rows="5" name="message" id="message" ngModel #message="ngModel" class="form-control" required></textarea>
+                <small *ngIf="!message.valid && message.touched">
+                    {{comment_message_required}}
+                </small>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-4 mx-auto">
+                <button type="submit" class="btn btn-primary" [disabled]="commentForm.invalid">Comment</button>
+            </div>
+        </div>
+    </form>
+</div>

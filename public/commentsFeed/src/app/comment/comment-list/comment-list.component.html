@@ -1,0 +1,30 @@
+<div class="container mb-5">
+
+
+    <!-- <app-add-comment (addEventmitter)="refreshComments()"></app-add-comment> -->
+    <app-add-comment-template (addEventmitter)="refreshComments()"></app-add-comment-template>
+    <div class="d-flex justify-content-center mt-2">
+
+        <section>
+            <div class="card my-card mb-2" *ngFor="let comment of comments">
+                <div class="card-body">
+
+                    <div class="card mt-2 my-inner-card">
+                        <div class="card-body my-message-card mb-2">
+                            <small class="card-text"> {{comment.message}}</small>
+                        </div>
+                    </div>
+                    <small> <a routerLink="comments/{{comment.id}}">
+                            {{comment.name}}</a> on {{comment.created| date:'EEEE, h:mm a'}}
+
+                    </small>
+                </div>
+            </div>
+            <div *ngIf="totalComments>0">
+                <button class="btn btn-secondary" id="my-button" [disabled]="offset<=0" (click)="getPrev()"> &LeftArrow; Prev</button>
+                <button class="btn btn-secondary" id="my-button" [disabled]="count >=totalComments-offset" (click)="getNext()">Next &rightarrow;</button>
+            
+            </div>
+        </section>
+    </div>
+</div>
