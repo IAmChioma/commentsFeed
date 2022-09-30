@@ -21,7 +21,7 @@ export class CommentListComponent implements OnInit {
 
   getComments():void{
     this._commentService.getComments().subscribe(response=>{
-      this.allComments = response;
+      this.allComments = this.sortData(response);
       this.totalComments = response.length;
       this.comments= this.allComments.slice(this.offset).slice(0, this.count)
   
@@ -57,5 +57,10 @@ export class CommentListComponent implements OnInit {
     this.comments = this.allComments.slice(this.offset).slice(0, this.count)
     console.log( this.allComments,this.comments, this.totalComments);
   
+  }
+   sortData(arr: Comment[]) {
+    return arr.sort((a, b) => {
+      return <any>new Date(b.created) - <any>new Date(a.created);
+    });
   }
 }

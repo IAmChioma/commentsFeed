@@ -42,4 +42,8 @@ describe('CommentDetailsComponent', () => {
       expect(comment).toEqual(component.comment);
     })
   });
+  it('should render title in a p tag', (() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('p').textContent).toContain('Comment Details:::');
+  }));
 });

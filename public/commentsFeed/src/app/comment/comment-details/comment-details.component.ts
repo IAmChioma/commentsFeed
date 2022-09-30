@@ -30,4 +30,5 @@ export class CommentDetailsComponent implements OnInit {
   goBack(){
     this._location.back();
   }
+  
 }
